@@ -74,4 +74,3 @@ SElemType ElemGetTop(SqStack s)
 	out = *(s.top - 1);
 	return out;
 }
-
