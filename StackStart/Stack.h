@@ -15,3 +15,7 @@ typedef struct {
 }SqStack;
 
 SqStack* StackInit(void);
+void StackDestory(SqStack s);
+void StackIncrease(SqStack *s);
+void Push(SqStack s, SElemType e);
+SElemType Pop(SqStack s);
