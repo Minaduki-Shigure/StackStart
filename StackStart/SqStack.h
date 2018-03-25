@@ -15,9 +15,11 @@ typedef struct {
 }SqStack;
 
 SqStack StackInit(void);
+void StackClear(SqStack s);
 void StackDestory(SqStack s);
 void StackIncrease(SqStack *s);
 int IsStackEmpty(SqStack s);
+int StackLength(SqStack s);
 void Push(SqStack s, SElemType e);
 SElemType Pop(SqStack s);
 SElemType ElemGetTop(SqStack s);

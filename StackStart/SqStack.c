@@ -1,4 +1,4 @@
-#include"Stack.h"
+#include"SqStack.h"
 
 SqStack StackInit(void)
 {
@@ -9,6 +9,12 @@ SqStack StackInit(void)
 	s.top = s.base;
 	s.StackSize = STACK_INIT_SIZE;
 	return s;
+}
+
+void StackClear(SqStack s)
+{
+	s.top = s.base;
+	return;
 }
 
 void StackDestory(SqStack s)
@@ -37,6 +43,11 @@ int IsStackEmpty(SqStack s)
 	else
 		return 0;
 }//然而感觉有时间引用这个函数，还不如直接打s.top == s.base╮(╯▽╰)╭
+
+int StackLength(SqStack s)
+{
+	return s.top - s.base;
+}
 
 void Push(SqStack s, SElemType e)
 {
