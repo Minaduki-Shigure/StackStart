@@ -8,18 +8,18 @@
 
 typedef int SElemType;
 
-typedef struct {
+typedef struct SqStack{
 	SElemType *base;
 	SElemType *top;
 	int StackSize;
 }SqStack;
 
-SqStack StackInit(void);
-void StackClear(SqStack s);
-void StackDestory(SqStack s);
-void StackIncrease(SqStack *s);
-int IsStackEmpty(SqStack s);
-int StackLength(SqStack s);
-void Push(SqStack s, SElemType e);
-SElemType Pop(SqStack s);
-SElemType ElemGetTop(SqStack s);
+SqStack SqStackInit(void);
+void SqStackClear(SqStack s);
+void SqStackDestory(SqStack s);
+void SqStackIncrease(SqStack *s);
+int SqIsStackEmpty(SqStack s);
+int SqStackLength(SqStack s);
+void SqPush(SqStack s, SElemType e);
+SElemType SqPop(SqStack s);
+SElemType SqElemGetTop(SqStack s);

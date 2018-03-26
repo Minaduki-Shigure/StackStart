@@ -1,6 +1,6 @@
 #include"SqStack.h"
 
-SqStack StackInit(void)
+SqStack SqStackInit(void)
 {
 	SqStack s;
 	s.base = (SElemType*)malloc(STACK_INIT_SIZE * sizeof(SElemType));
@@ -11,13 +11,13 @@ SqStack StackInit(void)
 	return s;
 }
 
-void StackClear(SqStack s)
+void SqStackClear(SqStack s)
 {
 	s.top = s.base;
 	return;
 }
 
-void StackDestory(SqStack s)
+void SqStackDestory(SqStack s)
 {
 	free(s.base);
 	s.base = NULL;
@@ -26,7 +26,7 @@ void StackDestory(SqStack s)
 	return;
 }
 
-void StackIncrease(SqStack *s)
+void SqStackIncrease(SqStack *s)
 {
 	(*s).base = (SElemType *)realloc((*s).base, ((*s).StackSize + STACK_INCRESEMENT) * sizeof(SElemType));
 	if (!(*s).base)
@@ -36,7 +36,7 @@ void StackIncrease(SqStack *s)
 	return;
 }
 
-int IsStackEmpty(SqStack s)
+int SqIsStackEmpty(SqStack s)
 {
 	if (s.top == s.base)
 		return 1;
@@ -44,20 +44,20 @@ int IsStackEmpty(SqStack s)
 		return 0;
 }//然而感觉有时间引用这个函数，还不如直接打s.top == s.base╮(╯▽╰)╭
 
-int StackLength(SqStack s)
+int SqStackLength(SqStack s)
 {
 	return s.top - s.base;
 }
 
-void Push(SqStack s, SElemType e)
+void SqPush(SqStack s, SElemType e)
 {
 	if (s.top - s.base >= s.StackSize)
-		StackIncrease(&s);
+		SqStackIncrease(&s);
 	*s.top++ = e;
 	return;
 }
 
-SElemType Pop(SqStack s)
+SElemType SqPop(SqStack s)
 {
 	SElemType out;
 	if (s.top == s.base)
@@ -66,7 +66,7 @@ SElemType Pop(SqStack s)
 	return out;
 }
 
-SElemType ElemGetTop(SqStack s)
+SElemType SqElemGetTop(SqStack s)
 {
 	SElemType out;
 	if (s.top == s.base)
