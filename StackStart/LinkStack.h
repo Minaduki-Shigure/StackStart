@@ -19,7 +19,7 @@ typedef struct LinkStack{
 }LinkStack;
 
 void wipe_cache(FILE *fp);
-LinkStackNode *NewNode(void);
+LinkStackNode *NewStackNode(void);
 LinkStack LinkStackInit(void);
 void LinkStackDestroy(LinkStack s);
 void LinkPush(LinkStack *s, SElemType e);

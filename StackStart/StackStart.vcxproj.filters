@@ -21,9 +21,15 @@
     <ClCompile Include="ListStack.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LinkList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,7 +6,7 @@ void wipe_cache(FILE *fp)
 	while ((ch = fgetc(fp)) != EOF && ch != '\n');
 }
 
-LinkStackNode *NewNode(void)
+LinkStackNode *NewStackNode(void)
 {
 	LinkStackNode *p = NULL;
 	p = (LinkStackNode*)malloc(sizeof(LinkStackNode));
@@ -21,7 +21,7 @@ LinkStack LinkStackInit(void)
 	int i = 0;
 	for (i = 0; i <= STACK_INIT_SIZE; i++)
 	{
-		p = NewNode();
+		p = NewStackNode();
 		p->data = '$';
 		p->next = NULL;
 		if (i == 0)
@@ -59,7 +59,7 @@ void LinkPush(LinkStack *s, SElemType e)
 {
 	if ((*s).top->next == NULL)
 	{
-		(*s).top->next = NewNode();
+		(*s).top->next = NewStackNode();
 		(*s).StackSize++;
 	}
 	(*s).top->data = e;
