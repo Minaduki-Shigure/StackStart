@@ -10,7 +10,10 @@ int main(void)
 		wipe_cache(stdin);
 		if (input == '$')
 			break;
-		LinkPush(&s, input);
+		else if (input == GetTopElem(&s))
+			LinkPop(&s);
+		else
+			LinkPush(&s, input);
 	}
 	StackPrint(&s);
 	system("pause");

@@ -25,3 +25,5 @@ void LinkStackDestroy(LinkStack s);
 void LinkPush(LinkStack *s, SElemType e);
 SElemType LinkPop(LinkStack *s);
 void StackPrint(LinkStack *s);
+LinkStackNode *GetTopAddress(LinkStack *s);
+SElemType GetTopElem(LinkStack *s);

@@ -22,7 +22,7 @@ LinkStack LinkStackInit(void)
 	for (i = 0; i <= STACK_INIT_SIZE; i++)
 	{
 		p = NewNode();
-		p->data = i;
+		p->data = '$';
 		p->next = NULL;
 		if (i == 0)
 			head = p1 = p;
@@ -57,8 +57,11 @@ void LinkStackDestroy(LinkStack s)
 
 void LinkPush(LinkStack *s, SElemType e)
 {
-	if ((*s).top == NULL)
-		(*s).top = NewNode();
+	if ((*s).top->next == NULL)
+	{
+		(*s).top->next = NewNode();
+		(*s).StackSize++;
+	}
 	(*s).top->data = e;
 	(*s).top = (*s).top->next;
 	return;
@@ -67,20 +70,13 @@ void LinkPush(LinkStack *s, SElemType e)
 SElemType LinkPop(LinkStack *s)
 {
 	SElemType out;
-	LinkStackNode *top = (*s).top, *head = (*s).base, *p = NULL, *p1 = NULL;
-	if (top == NULL)
+	LinkStackNode *p = GetTopAddress(s);
+	if (p == NULL)
 		return -1;
-	p = head;
-	while (1)
-	{
-		p1 = p->next;
-		if (p1->next == NULL)
-			break;
-		p = p1;
-	}
-	out = p1->data;
+	out = p->data;
 	p->next = NULL;
-	free(p1);
+	free(p->next);
+	(*s).StackSize--;
 	(*s).top = p;
 	return out;
 }
@@ -96,6 +92,34 @@ void StackPrint(LinkStack *s)
 		printf("%c\n", out->data);
 		out = out->next;
 	}
-	printf("\nEOF\n");
+	printf("EOF\n");
 	return;
+}
+
+LinkStackNode *GetTopAddress(LinkStack *s)
+{
+	LinkStackNode *p = (*s).base;
+	if ((*s).base == (*s).top)
+		return NULL;
+	while (1)
+	{
+		if (p->next == (*s).top)
+			break;
+		p = p->next;
+	}
+	return p;
+}
+
+SElemType GetTopElem(LinkStack *s)
+{
+	LinkStackNode *p = (*s).base;
+	if ((*s).base == (*s).top)
+		return -1;
+	while (1)
+	{
+		if (p->next == (*s).top)
+			break;
+		p = p->next;
+	}
+	return p->data;
 }
