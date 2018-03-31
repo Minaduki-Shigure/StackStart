@@ -64,10 +64,10 @@ void LinkPush(LinkStack *s, SElemType e)
 	return;
 }
 
-SElemType LinkPop(LinkStack s)
+SElemType LinkPop(LinkStack *s)
 {
 	SElemType out;
-	LinkStackNode *top = s.top, *head = s.base, *p = NULL, *p1 = NULL;
+	LinkStackNode *top = (*s).top, *head = (*s).base, *p = NULL, *p1 = NULL;
 	if (top == NULL)
 		return -1;
 	p = head;
@@ -81,16 +81,17 @@ SElemType LinkPop(LinkStack s)
 	out = p1->data;
 	p->next = NULL;
 	free(p1);
-	s.top = p;
+	(*s).top = p;
 	return out;
 }
 
-void StackPrint(LinkStack s)
+void StackPrint(LinkStack *s)
 {
-	LinkStackNode *out = s.base;
+	LinkStackNode *out = (*s).base;
+	printf("\n");
 	while (1)
 	{
-		if (out == NULL)
+		if (out == (*s).top)
 			break;
 		printf("%c\n", out->data);
 		out = out->next;

@@ -12,7 +12,7 @@ int main(void)
 			break;
 		LinkPush(&s, input);
 	}
-	StackPrint(s);
+	StackPrint(&s);
 	system("pause");
 	return 0;
 }

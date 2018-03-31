@@ -23,5 +23,5 @@ LinkStackNode *NewNode(void);
 LinkStack LinkStackInit(void);
 void LinkStackDestroy(LinkStack s);
 void LinkPush(LinkStack *s, SElemType e);
-SElemType LinkPop(LinkStack s);
-void StackPrint(LinkStack s);
+SElemType LinkPop(LinkStack *s);
+void StackPrint(LinkStack *s);
