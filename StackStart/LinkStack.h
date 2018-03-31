@@ -5,7 +5,7 @@
 
 #define STACK_INIT_SIZE 100
 
-typedef int SElemType;
+typedef char SElemType;
 
 typedef struct LinkStackNode{
 	SElemType data;

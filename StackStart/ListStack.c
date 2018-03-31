@@ -79,3 +79,17 @@ SElemType LinkPop(LinkStack s)
 	s.top = p;
 	return out;
 }
+
+void StackPrint(LinkStack s)
+{
+	LinkStackNode *out = s.base;
+	while (1)
+	{
+		if (out == NULL)
+			break;
+		putchar(out->data);
+		out = out->next;
+	}
+	printf("\nEOF\n");
+	return;
+}
