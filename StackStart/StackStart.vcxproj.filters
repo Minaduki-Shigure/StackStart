@@ -18,17 +18,11 @@
     <ClCompile Include="main.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SqStack.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="ListStack.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SqStack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="LinkStack.h">
       <Filter>头文件</Filter>
     </ClInclude>
