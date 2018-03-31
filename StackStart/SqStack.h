@@ -6,7 +6,7 @@
 #define STACK_INIT_SIZE 100
 #define STACK_INCRESEMENT 10
 
-typedef int SElemType;
+typedef char SElemType;
 
 typedef struct {
 	SElemType *base;
@@ -14,6 +14,7 @@ typedef struct {
 	int StackSize;
 }SqStack;
 
+void wipe_cache(FILE *fp);
 SqStack StackInit(void);
 void StackClear(SqStack s);
 void StackDestory(SqStack s);
@@ -23,3 +24,4 @@ int StackLength(SqStack s);
 void Push(SqStack s, SElemType e);
 SElemType Pop(SqStack s);
 SElemType ElemGetTop(SqStack s);
+void StackPrint(SqStack s);

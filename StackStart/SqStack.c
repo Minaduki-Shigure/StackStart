@@ -1,5 +1,11 @@
 #include"SqStack.h"
 
+void wipe_cache(FILE *fp)
+{
+	int ch;
+	while ((ch = fgetc(fp)) != EOF && ch != '\n');
+}
+
 SqStack StackInit(void)
 {
 	SqStack s;
@@ -73,4 +79,18 @@ SElemType ElemGetTop(SqStack s)
 		return -1;
 	out = *(s.top - 1);
 	return out;
+}
+
+void StackPrint(SqStack s)
+{
+	SElemType *p = s.base;
+	while (1)
+	{
+		putchar(*p);
+		p++;
+		if (p == s.top)
+			break;
+	}
+	printf("EOF\n");
+	return;
 }
