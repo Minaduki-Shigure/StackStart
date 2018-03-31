@@ -59,7 +59,7 @@ void Push(SqStack s, SElemType e)
 {
 	if (s.top - s.base >= s.StackSize)
 		StackIncrease(&s);
-	*s.top++ = e;
+	*(s.top++) = e;
 	return;
 }
 
@@ -86,10 +86,10 @@ void StackPrint(SqStack s)
 	SElemType *p = s.base;
 	while (1)
 	{
-		putchar(*p);
-		p++;
 		if (p == s.top)
 			break;
+		putchar(*p);
+		p++;
 	}
 	printf("EOF\n");
 	return;
