@@ -1,4 +1,3 @@
-#include"SqStack.h"
 #include"LinkStack.h"
 
 int main(void)
@@ -11,7 +10,7 @@ int main(void)
 		wipe_cache(stdin);
 		if (input == '$')
 			break;
-		Push(s, input);
+		LinkPush(&s, input);
 	}
 	StackPrint(s);
 	system("pause");

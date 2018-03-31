@@ -1,9 +1,16 @@
 #include"LinkStack.h"
 
+void wipe_cache(FILE *fp)
+{
+	int ch;
+	while ((ch = fgetc(fp)) != EOF && ch != '\n');
+}
+
 LinkStackNode *NewNode(void)
 {
 	LinkStackNode *p = NULL;
 	p = (LinkStackNode*)malloc(sizeof(LinkStackNode));
+	p->next = NULL;
 	return p;
 }
 
@@ -48,14 +55,12 @@ void LinkStackDestroy(LinkStack s)
 	return;
 }
 
-void LinkPush(LinkStack s, SElemType e)
+void LinkPush(LinkStack *s, SElemType e)
 {
-	LinkStackNode *top = s.top;
-	if (top->next == NULL)
-		top->next = NewNode();
-	s.top = top->next;
-	top = s.top;
-	top->data = e;
+	if ((*s).top == NULL)
+		(*s).top = NewNode();
+	(*s).top->data = e;
+	(*s).top = (*s).top->next;
 	return;
 }
 
@@ -87,7 +92,7 @@ void StackPrint(LinkStack s)
 	{
 		if (out == NULL)
 			break;
-		putchar(out->data);
+		printf("%c\n", out->data);
 		out = out->next;
 	}
 	printf("\nEOF\n");
